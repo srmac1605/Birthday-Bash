@@ -269,26 +269,44 @@ body {
 }
 
 .num-candle {
-    top: 5%;
+    top: 10%;
+    z-index: 10;
+}
+
+.num-candle::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 35px;
+    background: #d4a373;
+    z-index: -1;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 
 .num-2 { left: 42%; }
 .num-5 { left: 54%; }
 
 .digit {
-    font-size: 6rem;
-    font-family: 'Cinzel Decorative', cursive;
-    color: #fff;
-    text-shadow: 0 0 15px #ff9d00, 0 0 30px #ff3b00, 2px 2px 5px rgba(0,0,0,0.8);
-    font-weight: bold;
-    line-height: 1;
+    font-size: 5.5rem;
+    font-family: 'Fredoka', 'Arial Rounded MT Bold', sans-serif;
+    color: #ffb3d9;
+    text-shadow: 
+        -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff,
+        2px 2px 0 #e60073, 3px 3px 0 #e60073, 4px 4px 0 #e60073, 5px 5px 0 #e60073,
+        6px 6px 15px rgba(0,0,0,0.6);
+    font-weight: 700;
+    line-height: 1.1;
 }
 
 .digit-container {
     position: relative;
-    height: 6.5rem;
+    height: 7rem;
     overflow: hidden;
-    width: 5rem;
+    width: 5.5rem;
 }
 
 .current-digit, .next-digit {
@@ -344,9 +362,9 @@ body {
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 
-.c1 { top: 22%; left: 25%; }
-.c2 { top: 24%; left: 75%; }
-.c3 { top: 26%; left: 65%; }
+.c1 { top: 20%; left: 22%; }
+.c2 { top: 18%; left: 78%; }
+.c3 { top: 25%; left: 68%; }
 
 @keyframes flicker {
     0% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
