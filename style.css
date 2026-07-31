@@ -376,13 +376,14 @@ body {
 }
 
 .media-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    grid-auto-flow: dense;
+    column-count: 3;
+    column-gap: 2rem;
+    display: block;
 }
 
 .media-item {
+    break-inside: avoid;
+    margin-bottom: 2rem;
     position: relative;
     border-radius: 20px;
     overflow: hidden;
@@ -393,8 +394,7 @@ body {
 
 .media-item img, .media-item video {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
     transition: transform 0.8s ease;
 }
@@ -416,12 +416,7 @@ body {
     box-shadow: inset 0 0 30px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(181, 245, 66, 0.3);
 }
 
-@media (min-width: 768px) {
-    .span-2 {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-}
+/* Grid classes removed in favor of CSS columns masonry */
 
 /* WISHES SECTION */
 .wishes-section {
@@ -472,3 +467,48 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg-dark); }
 ::-webkit-scrollbar-thumb { background: #1a3324; border-radius: 5px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--mushroom-glow); }
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 900px) {
+    .media-grid {
+        column-count: 2;
+    }
+    .cake-container {
+        max-width: 90%;
+    }
+    .digit {
+        font-size: 4rem;
+    }
+    .digit-container {
+        height: 4.5rem;
+        width: 3.5rem;
+    }
+    .title {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+    }
+    .name {
+        font-size: clamp(3rem, 8vw, 5rem);
+    }
+}
+
+@media (max-width: 600px) {
+    .media-grid {
+        column-count: 1;
+    }
+    .wishes-gallery {
+        grid-template-columns: 1fr;
+    }
+    .blow-btn {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+    .hero-bg-image {
+        background-position: center 20%;
+    }
+    .num-candle {
+        top: -5%;
+    }
+    .c1 { top: 15%; }
+    .c2 { top: 15%; }
+    .c3 { top: 20%; }
+}
